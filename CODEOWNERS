@@ -1,0 +1,5 @@
+# CODEOWNERS
+# All changes to this repository require review from the owner.
+# This file is enforced by branch protection rules.
+
+* @vamsivarma27
