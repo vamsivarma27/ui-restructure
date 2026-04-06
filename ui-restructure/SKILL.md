@@ -11,11 +11,13 @@ description: |
   - You need to reset design tokens and rebuild spacing/typography scales
   - You want a full or partial UI rebuild (layout-only, theme-only, grid-only)
 
+  Also applies a mandatory world-class polish pass: smooth motion with spring physics and correct easing curves, micro-interactions on every interactive element (hover lift, press scale, focus rings), proper typography rhythm, optical icon alignment, loading/empty/error states, and WCAG accessibility. Produces Stripe/Linear/Vercel-quality UI.
+
   Supports: Next.js, React (Vite/CRA), Vue 3, Tailwind, CSS modules, styled-components, shadcn, plain CSS.
 license: MIT
 metadata:
   author: claude-ui-restructure
-  version: "1.0.0"
+  version: "1.1.0"
   category: ui-design
   tags: ui,restructure,redesign,design-system,tailwind,nextjs,react,vue,tokens
 argument-hint: "[--style apple|linear|minimal|dashboard] [--mode full|layout|theme|grid] [--prompt 'custom UI'] [--keep-tokens] [--grid cards] [--density compact]"
@@ -285,7 +287,50 @@ Using the stripped components from Step 6 + the style engine from Step 8 + the m
 
 For each file modified, show a brief diff summary.
 
-After completing all files, output:
+---
+
+## Step 11 — Polish Pass (mandatory, never skip)
+
+After rebuilding all UI files, read `references/ui-craft.md` and apply the full polish pass to every component:
+
+**Motion:**
+- Add `transition-all` or specific transition properties to every interactive element
+- Apply correct easing curves (ease-out for entrance, ease-in for exit, spring for press)
+- Add `active:scale-[0.97]` to all buttons
+- Add `hover:translateY(-2px)` + shadow transition to all clickable cards
+- Use Framer Motion spring presets if the project already uses Framer Motion
+
+**States:**
+- Every button must have: default, hover, focus-visible, active, disabled styles
+- Every input must have: default, focus (ring + border), error, disabled styles
+- Every list/table must have an empty state component
+- Every async action must have a loading state (skeleton or spinner)
+- Every error path must have an error state component
+
+**Typography:**
+- Verify line-height is proportional to font size (large text = tight, body = relaxed)
+- Add `text-balance` to all headings to prevent orphaned words
+- Verify max-w-prose on body copy blocks
+- Apply negative letter-spacing to headings ≥ 24px
+
+**Icons:**
+- Verify one icon library is used consistently
+- Verify icon size matches adjacent text size optically
+- Add `aria-hidden="true"` to all decorative icons
+- Add `aria-label` to all icon-only buttons
+
+**Spacing:**
+- Verify all spacing values are on 4/8px grid
+- Verify inner border-radius = outer border-radius − padding on nested cards
+
+**Accessibility:**
+- Replace `outline: none` with `focus-visible` custom ring styles
+- Verify all interactive elements are keyboard reachable
+- Verify touch targets ≥ 44×44px (add padding if needed without changing visual size)
+
+Run the complete checklist from `references/ui-craft.md` section 11 before finalizing.
+
+After completing all files and polish pass, output:
 
 ```
 ✓ UI Restructure Complete
@@ -295,6 +340,7 @@ Mode: [applied mode]
 Files modified: [count]
 Logic preserved: ✓ (hooks, handlers, API calls untouched)
 Tokens regenerated: ✓ / Tokens kept: ✓
+Polish pass: ✓ (motion, states, typography, icons, accessibility)
 ```
 
 ---
