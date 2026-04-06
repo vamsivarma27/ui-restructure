@@ -1,0 +1,41 @@
+{
+  "name": "claude-ui-restructure",
+  "version": "1.0.0",
+  "description": "Claude Code skill — restructure UI from scratch without deleting project logic. Solves UI lock-in across Next.js, React, Vue, Tailwind, and more.",
+  "keywords": [
+    "claude",
+    "claude-code",
+    "skill",
+    "skill-md",
+    "skillsmp",
+    "ui",
+    "redesign",
+    "restructure",
+    "design-system",
+    "tailwind",
+    "nextjs",
+    "react",
+    "vue",
+    "tokens",
+    "glassmorphism",
+    "apple",
+    "linear",
+    "dashboard"
+  ],
+  "author": "Vamsi Varma",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vamsivarma27/claude-ui-restructure.git"
+  },
+  "homepage": "https://github.com/vamsivarma27/claude-ui-restructure#readme",
+  "bugs": {
+    "url": "https://github.com/vamsivarma27/claude-ui-restructure/issues"
+  },
+  "files": [
+    "claude-ui-restructure/"
+  ],
+  "scripts": {
+    "validate": "npx skills-ref validate ./claude-ui-restructure"
+  }
+}
